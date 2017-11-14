@@ -66,8 +66,8 @@ export default class Main extends React.Component {
     }
 
     addToData() {
-        this.data[estimatedPriceField] = this.state;
-        this.estimatedPriceField++;
+        Array.push(data,this.state);
+        id++;
     }
 
     sendMail() {

@@ -10,6 +10,7 @@ global.data = [{sellerEmailField: "test1@gmail.com", carPartNameField : "front b
     {sellerEmailField: "test5@gmail.com", carPartNameField : "tinted windows", estimatedPriceField: "100"},
     {sellerEmailField: "test6@gmail.com", carPartNameField : "headlights", estimatedPriceField: "50"},
     {sellerEmailField: "test7@gmail.com", carPartNameField : "recaro interior", estimatedPriceField: "1000"}];
+global.id = 6;
 const ModalStack = StackNavigator({
     Home: {
         screen: Main,

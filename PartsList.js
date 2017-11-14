@@ -19,7 +19,7 @@ export default class PartsList extends React.Component {
                 <FlatList
                     data={this.data}
                     renderItem={({item}) => <Text
-                    onPress={()=>this.props.navigation.navigate("EditCarPart",item)}
+                    onPress={()=>this.props.navigation.navigate("EditPart", {item})}
                     style={styles.item}>
                         {item.carPartNameField}</Text>}
                 />

@@ -14,36 +14,40 @@ import Communications from 'react-native-communications';
 export default class EditCarPart extends React.Component{
     constructor(props){
         super(props);
-        this.state.sellerEmailField = "";
-        this.state.carPartNameField = "";
-        this.state.estimatedPriceField = "";
+        this.item = this.props.navigation.state.params.item;
+        this.data = data;
+        this.state = {
+            sellerEmailField: this.item.sellerEmailField,
+            carPartNameField: this.item.carPartNameField,
+            estimatedPriceField: this.item.estimatedPriceField,
+        };
     }
     save(){
         let item = this.state;
         for(let i =0; i<data.length; i++){
-            if(data[i].carPartNameField === item.carPartNameField){
+            if(data[i].carPartNameField === this.item.carPartNameField){
                 data[i] = item;
             }
         }
+        this.props.navigation.navigate('PartsList');
     }
     render(){
         return(
             <View>
                 <TextInput
                     style={styles.textBox}
-                    onChangeText={(carPartName)=>this.setState({carPartNameField})}
+                    onChangeText={(carPartName)=>this.setState({carPartNameField: carPartName})}
                     value={this.state.carPartNameField}
                 />
                 <TextInput
                     style={styles.textBox}
                     keyboardType = 'numeric'
-                    onChangeText={(price)=>this.setState({estimatedPriceField})}
-                    value={this.state.carPartNameField.toString()}
+                    onChangeText={(price)=>this.setState({estimatedPriceField: price})}
+                    value={this.state.estimatedPriceField.toString()}
                 />
                 <TextInput
                     style={styles.textBox}
-                    keyboardType = 'email'
-                    onChangeText={(email)=>this.setState({sellerEmailField})}
+                    onChangeText={(email)=>this.setState({sellerEmailField: email})}
                     value={this.state.sellerEmailField}
                 />
                 <Button
